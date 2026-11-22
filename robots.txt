@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://patchbay.dev/sitemap.xml
+Sitemap: https://patchbay-flame.vercel.app/sitemap.xml
