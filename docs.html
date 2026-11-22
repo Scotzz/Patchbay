@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Документация — Patchbay</title>
+  <meta name="description" content="Документация Patchbay: быстрый старт CLI, настройка синхронизации с GitHub, плагин VS Code и справочник REST API с примерами запросов.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Документация Patchbay">
+  <meta property="og:description" content="Руководство по CLI, GitHub Sync, VS Code и HTTP API.">
+  <meta property="og:image" content="assets/img/og-cover.svg">
+  <meta property="og:url" content="https://patchbay.dev/docs.html">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("patchbay-theme");
+        if (t === "light" || t === "dark") {
+          document.documentElement.setAttribute("data-theme", t);
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Перейти к содержимому</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <rect width="32" height="32" rx="6" fill="#181C23" stroke="#394252" stroke-width="1.5"/>
+          <path d="M9 10H17C19.7614 10 22 12.2386 22 15C22 17.7614 19.7614 20 17 20H13V24" stroke="#E7ECF2" stroke-width="2.4" stroke-linecap="square"/>
+          <rect x="12" y="13.5" width="5.5" height="3" fill="#38BDF8"/>
+        </svg>
+        <span>Patchbay</span>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Основная навигация">
+        <a class="nav-link" href="index.html">Главная</a>
+        <a class="nav-link" href="features.html">Возможности</a>
+        <a class="nav-link" href="pricing.html">Тарифы</a>
+        <a class="nav-link" href="docs.html" aria-current="page">Документация</a>
+        <a class="nav-link" href="blog.html">Блог</a>
+        <a class="nav-link" href="about.html">О нас</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Переключить тему">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l-1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+          </svg>
+          <span class="theme-label">Светлая тема</span>
+        </button>
+        <a class="btn btn--secondary btn--sm" href="auth.html?mode=login">Войти</a>
+        <a class="btn btn--primary btn--sm" href="auth.html?mode=register">Регистрация</a>
+        <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-drawer" aria-label="Открыть меню">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-drawer" class="mobile-drawer">
+      <nav aria-label="Мобильная навигация">
+        <ul class="mobile-nav-list">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="features.html">Возможности</a></li>
+          <li><a href="pricing.html">Тарифы</a></li>
+          <li><a href="docs.html" aria-current="page">Документация</a></li>
+          <li><a href="blog.html">Блог</a></li>
+          <li><a href="about.html">О нас и контакты</a></li>
+        </ul>
+      </nav>
+      <div class="mobile-drawer-actions">
+        <a class="btn btn--secondary btn--sm" href="auth.html?mode=login">Войти</a>
+        <a class="btn btn--primary btn--sm" href="auth.html?mode=register">Начать бесплатно</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <div class="container docs-layout">
+      <aside class="docs-sidebar" aria-label="Разделы документации">
+        <div class="docs-search-wrap">
+          <label for="docs-search" class="skip-link">Поиск по разделам</label>
+          <input id="docs-search" class="docs-search-input" type="search" placeholder="Фильтр по заголовкам..." aria-label="Поиск по разделам документации">
+        </div>
+
+        <nav>
+          <div class="docs-nav-group">
+            <h2 class="docs-nav-title">Начало работы</h2>
+            <ul class="docs-nav-list">
+              <li><a class="docs-nav-link is-active" href="#quickstart" data-doc-link data-keywords="cli установка авторизация токен">Быстрый старт и CLI</a></li>
+              <li><a class="docs-nav-link" href="#versioning" data-doc-link data-keywords="версии runtime semver откат">Версии и проверка сред</a></li>
+            </ul>
+          </div>
+
+          <div class="docs-nav-group">
+            <h2 class="docs-nav-title">Интеграции</h2>
+            <ul class="docs-nav-list">
+              <li><a class="docs-nav-link" href="#github-sync" data-doc-link data-keywords="github yaml репозиторий вебхук">Синхронизация с GitHub</a></li>
+              <li><a class="docs-nav-link" href="#vscode" data-doc-link data-keywords="vs code редактор палитра вставка">Расширение VS Code</a></li>
+            </ul>
+          </div>
+
+          <div class="docs-nav-group">
+            <h2 class="docs-nav-title">REST API v1</h2>
+            <ul class="docs-nav-list">
+              <li><a class="docs-nav-link" href="#api-auth" data-doc-link data-keywords="bearer token заголовки лимиты">Авторизация и лимиты</a></li>
+              <li><a class="docs-nav-link" href="#api-example" data-doc-link data-keywords="get snippets запрос ответ json curl">Получение сниппета (GET)</a></li>
+              <li><a class="docs-nav-link" href="#api-errors" data-doc-link data-keywords="коды ошибок 401 404 429">Коды ответов и ошибок</a></li>
+            </ul>
+          </div>
+          <p id="docs-empty" class="docs-empty">Совпадений по заголовкам не найдено.</p>
+        </nav>
+      </aside>
+
+      <div class="docs-content">
+        <div class="section-header">
+          <h1>Документация Patchbay</h1>
+          <p class="lead">Справочник по CLI-клиенту, настройке интеграций и HTTP API v1 для встраивания в пайплайны и внутренние порталы.</p>
+        </div>
+
+        <section class="doc-section" id="quickstart">
+          <h2>Быстрый старт и CLI</h2>
+          <p>CLI распространяется как единый статический бинарный файл под Linux, macOS и Windows, а также через Homebrew и npm. После установки привяжите локальный профиль к вашему токену доступа.</p>
+          <div class="code-block">
+            <div class="code-header">
+              <span>bash — установка и первая выборка</span>
+              <button class="copy-btn" type="button" data-copy-self>Копировать</button>
+            </div>
+            <pre class="code-pre"><code data-lang="bash"># Установка через Homebrew или npm
+brew install patchbay/tap/patchbay
+# или: npm i -g @patchbay/cli
+
+# Авторизация через токен из профиля
+patchbay auth login --token "$PATCHBAY_TOKEN"
+
+# Получить сниппет в stdout и скопировать в буфер
+patchbay get pg-lock-check --runtime pg16 --copy</code></pre>
+          </div>
+        </section>
+
+        <section class="doc-section" id="versioning">
+          <h2>Версии и проверка сред</h2>
+          <p>Каждый сниппет поддерживает произвольное число ревизий. Поле <code>runtime</code> фиксирует, на каких версиях СУБД, оркестратора или языка код проверялся последний раз. При появлении несовместимого флага заводится новая минорная или мажорная версия, а старая остаётся доступной по явному параметру <code>?version=</code>.</p>
+        </section>
+
+        <section class="doc-section" id="github-sync">
+          <h2>Синхронизация с GitHub</h2>
+          <p>Чтобы команда могла ревьюить runbook-и через привычные Pull Request, добавьте в корень репозитория файл <code>.patchbay.yml</code> и установите GitHub App на нужные репозитории.</p>
+          <div class="code-block">
+            <div class="code-header">
+              <span>yaml — конфигурация .patchbay.yml</span>
+              <button class="copy-btn" type="button" data-copy-self>Копировать</button>
+            </div>
+            <pre class="code-pre"><code data-lang="yaml">workspace: backend-core
+default_visibility: team
+sync:
+  - path: "docs/snippets/**/*.sql"
+    tags: ["postgres", "migration"]
+    runtime: "pg16"
+  - path: "scripts/oncall/*.sh"
+    tags: ["incident", "bash"]
+    require_review: true</code></pre>
+          </div>
+        </section>
+
+        <section class="doc-section" id="vscode">
+          <h2>Расширение VS Code</h2>
+          <p>Установите расширение <code>patchbay.patchbay-vscode</code> из Marketplace. Нажмите <code>Ctrl+Shift+P</code> (или <code>Cmd+Shift+P</code> на macOS), выберите <strong>Patchbay: Insert Snippet</strong> и введите часть названия или тег. Если в сниппете объявлены переменные, редактор последовательно запросит их значения и вставит готовый блок.</p>
+        </section>
+
+        <section class="doc-section" id="api-auth">
+          <h2>Авторизация и лимиты</h2>
+          <p>Все запросы к закрытым пространствам должны передавать персональный или сервисный токен в заголовке <code>Authorization: Bearer &lt;token&gt;</code>. Заголовки <code>X-RateLimit-Remaining</code> и <code>X-RateLimit-Reset</code> возвращаются в каждом ответе.</p>
+        </section>
+
+        <section class="doc-section" id="api-example">
+          <h2>Получение сниппета (GET)</h2>
+          <div class="endpoint-badge">
+            <span class="http-method">GET</span>
+            <span>https://api.patchbay.dev/v1/snippets/{slug}</span>
+          </div>
+          <p>Возвращает содержимое сниппета, актуальную версию, список переменных и дату подтверждения совместимости. Необязательный query-параметр <code>runtime</code> подбирает наиболее свежую ревизию под указанную среду.</p>
+
+          <div class="code-block" style="margin-bottom: 1rem;">
+            <div class="code-header">
+              <span>bash — пример запроса через curl</span>
+              <button class="copy-btn" type="button" data-copy-self>Копировать</button>
+            </div>
+            <pre class="code-pre"><code data-lang="bash">curl -sS -X GET \
+  "https://api.patchbay.dev/v1/snippets/pg-lock-check?runtime=pg16" \
+  -H "Authorization: Bearer pb_live_98c4a1e7d2" \
+  -H "Accept: application/json"</code></pre>
+          </div>
+
+          <div class="code-block">
+            <div class="code-header">
+              <span>json — ответ 200 OK</span>
+              <button class="copy-btn" type="button" data-copy-self>Копировать</button>
+            </div>
+            <pre class="code-pre"><code data-lang="json">{
+  "id": "snp_01J9M4Q7K2",
+  "slug": "pg-lock-check",
+  "workspace": "backend-core",
+  "version": "2.4.0",
+  "language": "sql",
+  "runtime": ["pg14", "pg15", "pg16", "pg17"],
+  "verified_at": "2026-10-19T11:20:00Z",
+  "author": "d.krasnov",
+  "content": "SELECT pid, now() - query_start AS duration, pg_blocking_pids(pid) FROM pg_stat_activity WHERE state <> 'idle';"
+}</code></pre>
+          </div>
+        </section>
+
+        <section class="doc-section" id="api-errors">
+          <h2>Коды ответов и ошибок</h2>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th scope="col">Код</th>
+                  <th scope="col">Идентификатор</th>
+                  <th scope="col">Причина и действие</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row" class="mono">401</th>
+                  <td class="mono">unauthorized</td>
+                  <td>Отсутствует или отозван Bearer-токен. Выпустите новый токен в настройках профиля.</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="mono">403</th>
+                  <td class="mono">workspace_forbidden</td>
+                  <td>У токена нет прав чтения выбранного командного пространства.</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="mono">404</th>
+                  <td class="mono">snippet_not_found</td>
+                  <td>Сниппет с таким slug или запрошенной версией не существует.</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="mono">429</th>
+                  <td class="mono">rate_limit_exceeded</td>
+                  <td>Превышен суточный лимит тарифа. Повторите запрос после времени из <code>Retry-After</code>.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a class="brand" href="index.html">
+            <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <rect width="32" height="32" rx="6" fill="#181C23" stroke="#394252" stroke-width="1.5"/>
+              <path d="M9 10H17C19.7614 10 22 12.2386 22 15C22 17.7614 19.7614 20 17 20H13V24" stroke="#E7ECF2" stroke-width="2.4" stroke-linecap="square"/>
+              <rect x="12" y="13.5" width="5.5" height="3" fill="#38BDF8"/>
+            </svg>
+            <span>Patchbay</span>
+          </a>
+          <p class="muted" style="margin-top: 0.75rem; font-size: 0.9rem;">Реестр технических сниппетов, runbook-инструкций и рабочих ответов для разработки и эксплуатации.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Продукт</h3>
+          <ul class="footer-links">
+            <li><a href="features.html">Возможности</a></li>
+            <li><a href="pricing.html">Тарифы</a></li>
+            <li><a href="docs.html">Документация и API</a></li>
+            <li><a href="auth.html?mode=register">Регистрация</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Материалы</h3>
+          <ul class="footer-links">
+            <li><a href="blog.html">Инженерный блог</a></li>
+            <li><a href="docs.html#vscode">Плагин для VS Code</a></li>
+            <li><a href="docs.html#github-sync">Интеграция с GitHub</a></li>
+            <li><a href="404.html">Проверка страницы 404</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Компания</h3>
+          <ul class="footer-links">
+            <li><a href="about.html">О команде</a></li>
+            <li><a href="about.html#contact">Обратная связь</a></li>
+            <li><a href="auth.html?mode=login">Вход в кабинет</a></li>
+            <li><a href="mailto:hello@patchbay.dev">hello@patchbay.dev</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Patchbay. Все примеры кода доступны под лицензией MIT.</span>
+        <span class="mono">status: all systems operational · v2.8</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>

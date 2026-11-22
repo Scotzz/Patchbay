@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#12151A"/>
+  <path d="M0 96H1200M0 534H1200M96 0V630M1104 0V630" stroke="#222832" stroke-width="1"/>
+  <rect x="96" y="96" width="1008" height="438" fill="#181C23" stroke="#2A303C" stroke-width="1.5"/>
+  <rect x="148" y="152" width="44" height="44" rx="6" fill="#12151A" stroke="#2A303C" stroke-width="1.5"/>
+  <path d="M160 166H172C175.866 166 179 169.134 179 173C179 176.866 175.866 180 172 180H166V186" stroke="#E7ECF2" stroke-width="3" stroke-linecap="square"/>
+  <rect x="165" y="171" width="7.5" height="4" fill="#38BDF8"/>
+  <text x="212" y="183" fill="#E7ECF2" font-family="system-ui, -apple-system, sans-serif" font-size="30" font-weight="600">Patchbay</text>
+  <text x="148" y="268" fill="#E7ECF2" font-family="system-ui, -apple-system, sans-serif" font-size="46" font-weight="600">Проверенные сниппеты и ответы</text>
+  <text x="148" y="324" fill="#E7ECF2" font-family="system-ui, -apple-system, sans-serif" font-size="46" font-weight="600">для разработки и эксплуатации</text>
+  <text x="148" y="384" fill="#A6B0BF" font-family="system-ui, -apple-system, sans-serif" font-size="24">Рабочие конфиги, SQL, CLI и инцидент-шпаргалки с версиями и проверкой</text>
+  <rect x="148" y="428" width="244" height="52" rx="4" fill="#38BDF8"/>
+  <text x="176" y="461" fill="#0B1117" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="600">patchbay.dev</text>
+  <text x="424" y="461" fill="#A6B0BF" font-family="monospace" font-size="20">GET /v1/snippets/pg-lock-check</text>
+</svg>

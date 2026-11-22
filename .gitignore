@@ -1,0 +1,6 @@
+# Файлы ОС и редакторов
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/

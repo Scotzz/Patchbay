@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Страница не найдена — Patchbay</title>
+  <meta name="description" content="Запрошенный маршрут или сниппет не найден в Patchbay.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="404 — Страница не найдена — Patchbay">
+  <meta property="og:description" content="Страница не найдена. Перейдите на главную или откройте документацию.">
+  <meta property="og:image" content="assets/img/og-cover.svg">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("patchbay-theme");
+        if (t === "light" || t === "dark") {
+          document.documentElement.setAttribute("data-theme", t);
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Перейти к содержимому</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <rect width="32" height="32" rx="6" fill="#181C23" stroke="#394252" stroke-width="1.5"/>
+          <path d="M9 10H17C19.7614 10 22 12.2386 22 15C22 17.7614 19.7614 20 17 20H13V24" stroke="#E7ECF2" stroke-width="2.4" stroke-linecap="square"/>
+          <rect x="12" y="13.5" width="5.5" height="3" fill="#38BDF8"/>
+        </svg>
+        <span>Patchbay</span>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Основная навигация">
+        <a class="nav-link" href="index.html">Главная</a>
+        <a class="nav-link" href="features.html">Возможности</a>
+        <a class="nav-link" href="pricing.html">Тарифы</a>
+        <a class="nav-link" href="docs.html">Документация</a>
+        <a class="nav-link" href="blog.html">Блог</a>
+        <a class="nav-link" href="about.html">О нас</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Переключить тему">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l-1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+          </svg>
+          <span class="theme-label">Светлая тема</span>
+        </button>
+        <a class="btn btn--secondary btn--sm" href="auth.html?mode=login">Войти</a>
+        <a class="btn btn--primary btn--sm" href="auth.html?mode=register">Регистрация</a>
+        <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-drawer" aria-label="Открыть меню">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-drawer" class="mobile-drawer">
+      <nav aria-label="Мобильная навигация">
+        <ul class="mobile-nav-list">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="features.html">Возможности</a></li>
+          <li><a href="pricing.html">Тарифы</a></li>
+          <li><a href="docs.html">Документация</a></li>
+          <li><a href="blog.html">Блог</a></li>
+          <li><a href="about.html">О нас и контакты</a></li>
+        </ul>
+      </nav>
+      <div class="mobile-drawer-actions">
+        <a class="btn btn--secondary btn--sm" href="auth.html?mode=login">Войти</a>
+        <a class="btn btn--primary btn--sm" href="auth.html?mode=register">Начать бесплатно</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="section section--no-border">
+      <div class="container">
+        <div class="not-found-box">
+          <span class="code-404">HTTP 404 · route_not_found</span>
+          <h1>Такого маршрута или сниппета нет</h1>
+          <p class="lead">Возможно, ссылка устарела или страница была перенесена в другой раздел документации. Проверьте адрес или вернитесь на главную.</p>
+          <div class="hero-actions">
+            <a class="btn btn--primary" href="index.html">На главную</a>
+            <a class="btn btn--secondary" href="docs.html">Открыть документацию</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a class="brand" href="index.html">
+            <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <rect width="32" height="32" rx="6" fill="#181C23" stroke="#394252" stroke-width="1.5"/>
+              <path d="M9 10H17C19.7614 10 22 12.2386 22 15C22 17.7614 19.7614 20 17 20H13V24" stroke="#E7ECF2" stroke-width="2.4" stroke-linecap="square"/>
+              <rect x="12" y="13.5" width="5.5" height="3" fill="#38BDF8"/>
+            </svg>
+            <span>Patchbay</span>
+          </a>
+          <p class="muted" style="margin-top: 0.75rem; font-size: 0.9rem;">Реестр технических сниппетов, runbook-инструкций и рабочих ответов для разработки и эксплуатации.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Продукт</h3>
+          <ul class="footer-links">
+            <li><a href="features.html">Возможности</a></li>
+            <li><a href="pricing.html">Тарифы</a></li>
+            <li><a href="docs.html">Документация и API</a></li>
+            <li><a href="auth.html?mode=register">Регистрация</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Материалы</h3>
+          <ul class="footer-links">
+            <li><a href="blog.html">Инженерный блог</a></li>
+            <li><a href="docs.html#vscode">Плагин для VS Code</a></li>
+            <li><a href="docs.html#github-sync">Интеграция с GitHub</a></li>
+            <li><a href="404.html">Проверка страницы 404</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Компания</h3>
+          <ul class="footer-links">
+            <li><a href="about.html">О команде</a></li>
+            <li><a href="about.html#contact">Обратная связь</a></li>
+            <li><a href="auth.html?mode=login">Вход в кабинет</a></li>
+            <li><a href="mailto:hello@patchbay.dev">hello@patchbay.dev</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Patchbay. Все примеры кода доступны под лицензией MIT.</span>
+        <span class="mono">status: all systems operational · v2.8</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>
